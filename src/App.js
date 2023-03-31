@@ -3,6 +3,7 @@ import './App.css';
 import Header from './myComponents/Header';
 import Footer from './myComponents/Footer';
 import Todos from './myComponents/Todos';
+import AddTodo from './myComponents/AddTodo';
 import react, {useState} from 'react';
 
 function App() {
@@ -12,6 +13,9 @@ function App() {
   setTodos(todos.filter((e)=>{
     return e!==todo;
     }));
+}
+const addTodo = (title,desc) =>{
+  console.log("i am Adding new todo",title,desc)
 }
   
   const [todos, setTodos] = useState([
@@ -34,6 +38,7 @@ function App() {
   return (
     <>
     <Header title="TodosList" searchBar={true}/>
+    <AddTodo addTodo={addTodo}/>
     <Todos todos={todos} onDelete={onDelete}/>
     <Footer/>
     </>
